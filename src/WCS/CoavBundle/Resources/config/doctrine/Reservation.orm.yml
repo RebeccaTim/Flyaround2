@@ -14,6 +14,14 @@ WCS\CoavBundle\Entity\Reservation:
             length: 255
         nbSeats:
             type: integer
-        flight:
-            type: integer
     lifecycleCallbacks: {  }
+
+    manyToMany:
+        passengers:
+            targetEntity: User
+            mappedBy: reservation
+
+    manyToOne:
+        flights:
+            targetEntity: WCS\CoavBundle\Entity\Flight
+            inversedBy: reservations

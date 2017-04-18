@@ -109,5 +109,79 @@ class Reservation
     {
         return $this->flight;
     }
-}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $passengers;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->passengers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add passenger
+     *
+     * @param \WCS\CoavBundle\Entity\User $passenger
+     *
+     * @return Reservation
+     */
+    public function addPassenger(\WCS\CoavBundle\Entity\User $passenger)
+    {
+        $this->passengers[] = $passenger;
+
+        return $this;
+    }
+
+    /**
+     * Remove passenger
+     *
+     * @param \WCS\CoavBundle\Entity\User $passenger
+     */
+    public function removePassenger(\WCS\CoavBundle\Entity\User $passenger)
+    {
+        $this->passengers->removeElement($passenger);
+    }
+
+    /**
+     * Get passengers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPassengers()
+    {
+        return $this->passengers;
+    }
+    /**
+     * @var \WCS\CoavBundle\Entity\Flight
+     */
+    private $flights;
+
+
+    /**
+     * Set flights
+     *
+     * @param \WCS\CoavBundle\Entity\Flight $flights
+     *
+     * @return Reservation
+     */
+    public function setFlights(\WCS\CoavBundle\Entity\Flight $flights = null)
+    {
+        $this->flights = $flights;
+
+        return $this;
+    }
+
+    /**
+     * Get flights
+     *
+     * @return \WCS\CoavBundle\Entity\Flight
+     */
+    public function getFlights()
+    {
+        return $this->flights;
+    }
+}

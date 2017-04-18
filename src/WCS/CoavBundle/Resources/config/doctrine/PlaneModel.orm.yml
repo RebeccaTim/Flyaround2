@@ -23,3 +23,4 @@ WCS\CoavBundle\Entity\PlaneModel:
             type: string
             length: 255
     lifecycleCallbacks: {  }
+
